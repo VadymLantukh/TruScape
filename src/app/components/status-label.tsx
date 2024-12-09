@@ -1,3 +1,4 @@
+import React from 'react';
 import clsx from 'clsx';
 
 export enum Status {
@@ -10,9 +11,14 @@ export enum Status {
 export interface StatusLabelProps {
   children: React.ReactNode;
   status: Status;
+  disabled?: boolean;
 }
 
-export default function StatusLabel({ children, status }: StatusLabelProps) {
+export default function StatusLabel({
+  children,
+  status,
+  disabled,
+}: StatusLabelProps) {
   return (
     <div
       className={clsx(

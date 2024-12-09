@@ -1,0 +1,1 @@
+const CompanyRow = ({id, category,  }) => { }
