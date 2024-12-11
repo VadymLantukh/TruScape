@@ -1,16 +1,16 @@
 'use client';
 
-import CompanyForm, { CompanyFormProps } from './company-form';
+import CompanyForm, { CompanyFieldValues } from './company-form';
 import Modal, { ModalProps } from './modal';
 
 export interface CompanyFormModalProps extends ModalProps {
-  onSubnit: CompanyFormProps['onSumbit'];
+  onSubmit: CompanyFieldValues['onSubmit'];
 }
 
 const CompanyFormModal = ({ onSubmit, ...rest }: CompanyFormModalProps) => {
   return (
     <Modal {...rest}>
-      <CompanyForm onSumbit={onSubmit} />
+      <CompanyForm onSubmit={onSubmit} />
     </Modal>
   );
 };
