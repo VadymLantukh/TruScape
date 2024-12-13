@@ -1,6 +1,4 @@
-export interface IPageProps {}
-
-const Page = ({}: IPageProps) => {
+const Page = () => {
   return (
     <main>
       <h1 className="text-xl">Settings page</h1>
