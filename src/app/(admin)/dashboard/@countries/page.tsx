@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import DashboardCard from '@/app/components/dashboard-card';
 import { getCompanies, getCountries } from '@/lib/api';
-import getCountById from '@/utils/getCountById';
+import getCountById from '@/lib/utils/getCountById';
 
 const Page = async () => {
   const countries = await getCountries();
