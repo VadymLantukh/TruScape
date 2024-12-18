@@ -1,11 +1,15 @@
-import DashboardCard from '@/app/components/dashboard-card';
-import StatCard, { StatCardType } from '@/app/components/stat-card';
+import React from 'react';
 import { getCategories, getCompanies } from '@/lib/api';
 import getCountById from '@/lib/utils/getCountById';
+import StatCard, { StatCardType } from '@/app/components/stat-card';
+import DashboardCard from '@/app/components/dashboard-card';
 
-const Page = async () => {
+export interface PageProps {}
+
+export default async function Page({}: PageProps) {
   const categories = await getCategories();
   const companies = await getCompanies();
+
   const counts = getCountById(companies, 'categoryId');
 
   return (
@@ -23,6 +27,4 @@ const Page = async () => {
       </div>
     </DashboardCard>
   );
-};
-
-export default Page;
+}

@@ -1,17 +1,16 @@
-import CompanyInfo from '@/app/components/company-info';
-import CompanyPromotions from '@/app/components/company-promotions';
+import React from 'react';
+import { notFound } from 'next/navigation';
+import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { Company, getCompany, getPromotions } from '@/lib/api';
 import getQueryClient from '@/lib/utils/getQueryClient';
-import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
-import { notFound } from 'next/navigation';
+import CompanyInfo from '@/app/components/company-info';
+import CompanyPromotions from '@/app/components/company-promotions';
 
-export interface IPageProps {
-  params: {
-    id: string;
-  };
+export interface PageProps {
+  params: { id: string };
 }
 
-const Page = async ({ params }: IPageProps) => {
+export default async function Page({ params }: PageProps) {
   const queryClient = getQueryClient();
 
   await queryClient.prefetchQuery({
@@ -46,6 +45,4 @@ const Page = async ({ params }: IPageProps) => {
       </div>
     </HydrationBoundary>
   );
-};
-
-export default Page;
+}

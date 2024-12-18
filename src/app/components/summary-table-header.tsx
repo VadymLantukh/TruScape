@@ -5,6 +5,7 @@ export interface SummaryTableHeaderProps {
   align?: 'left' | 'center' | 'right';
   children: React.ReactNode;
 }
+
 export default function SummaryTableHeader({
   align = 'left',
   children,

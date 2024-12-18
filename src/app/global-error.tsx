@@ -1,15 +1,17 @@
 'use client';
 
-const GlobalError = () => {
+import React from 'react';
+
+export interface GlobalErrorProps {}
+
+export default function GlobalError({}: GlobalErrorProps) {
   return (
     <html>
       <body>
         <div>
-          <p>Somethink globally went wrong</p>
+          <p>Something globally went wrong</p>
         </div>
       </body>
     </html>
   );
-};
-
-export default GlobalError;
+}

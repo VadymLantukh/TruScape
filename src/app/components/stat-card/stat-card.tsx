@@ -6,6 +6,7 @@ export enum StatCardType {
   Dark = 'dark',
   Gradient = 'gradient',
 }
+
 export interface StatCardProps {
   type: StatCardType;
   label: string;

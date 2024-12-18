@@ -1,13 +1,16 @@
-import clsx from 'clsx';
+import React from 'react';
 import Image from 'next/image';
-
-import DashboardCard from '@/app/components/dashboard-card';
+import clsx from 'clsx';
 import { getCompanies, getCountries } from '@/lib/api';
+import DashboardCard from '@/app/components/dashboard-card';
 import getCountById from '@/lib/utils/getCountById';
 
-const Page = async () => {
+export interface PageProps {}
+
+export default async function Page({}: PageProps) {
   const countries = await getCountries();
   const companies = await getCompanies();
+
   const counts = getCountById(companies, 'countryId');
 
   return (
@@ -28,6 +31,4 @@ const Page = async () => {
       </div>
     </DashboardCard>
   );
-};
-
-export default Page;
+}

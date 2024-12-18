@@ -1,17 +1,16 @@
-import AddPromotionButton from '@/app/components/add-promotion-button';
-import SearchInput from '@/app/components/search-input';
+import React from 'react';
 import Toolbar from '@/app/components/toolbar';
+import SearchInput from '@/app/components/search-input';
+import AddPromotionButton from '@/app/components/add-promotion-button';
 
-export interface IPageProps {
+export interface PageProps {
   params: { id: string };
 }
 
-const Page = ({ params }: IPageProps) => {
+export default function Page({ params }: PageProps) {
   return (
     <Toolbar action={<AddPromotionButton companyId={params.id} />}>
       <SearchInput />
     </Toolbar>
   );
-};
-
-export default Page;
+}

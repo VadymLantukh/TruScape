@@ -10,12 +10,13 @@ export interface CompanyInfoProps {
   companyId: string;
 }
 
-const CompanyInfo = ({ companyId }: CompanyInfoProps) => {
+export default function CompanyInfo({ companyId }: CompanyInfoProps) {
   const { data: company } = useQuery({
     queryKey: ['companies', companyId],
     queryFn: () => getCompany(companyId),
     staleTime: 10 * 1000,
   });
+
   if (!company) return null;
   return (
     <div className="flex flex-col gap-5">
@@ -40,6 +41,4 @@ const CompanyInfo = ({ companyId }: CompanyInfoProps) => {
       </div>
     </div>
   );
-};
-
-export default CompanyInfo;
+}

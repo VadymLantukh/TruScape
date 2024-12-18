@@ -1,12 +1,13 @@
-import Header from '@/app/components/header';
+import React from 'react';
 import { Company, getCompany } from '@/lib/api';
 import getQueryClient from '@/lib/utils/getQueryClient';
+import Header from '@/app/components/header';
 
-export interface IPageProps {
+export interface PageProps {
   params: { id: string };
 }
 
-const Page = async ({ params }: IPageProps) => {
+export default async function Page({ params }: PageProps) {
   const queryClient = getQueryClient();
 
   await queryClient.prefetchQuery({
@@ -18,6 +19,4 @@ const Page = async ({ params }: IPageProps) => {
   const company = queryClient.getQueryData(['companies', params.id]) as Company;
 
   return <Header>{company?.title}</Header>;
-};
-
-export default Page;
+}

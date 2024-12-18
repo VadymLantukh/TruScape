@@ -5,9 +5,11 @@ import Image from 'next/image';
 import SidebarItem from '@/app/components/sidebar-item';
 import { usePathname, useRouter } from 'next/navigation';
 
-export default function Sidebar() {
+export interface SidebarProps {}
+
+export default function Sidebar({}: SidebarProps) {
   const router = useRouter();
-  const partname = usePathname();
+  const pathname = usePathname();
 
   const handleExitClick = () => {
     router.push('/');
@@ -25,7 +27,7 @@ export default function Sidebar() {
         />
         <ul className="space-y-7">
           <SidebarItem
-            current={partname === '/dashboard'}
+            current={pathname === '/dashboard'}
             pathname="/dashboard"
             src="/icons/squares.svg"
             alt="dashboard icon"
@@ -33,7 +35,7 @@ export default function Sidebar() {
             Dashboard
           </SidebarItem>
           <SidebarItem
-            current={partname === '/companies'}
+            current={pathname === '/companies'}
             pathname="/companies"
             src="/icons/briefcase.svg"
             alt="companies icon"
@@ -42,8 +44,8 @@ export default function Sidebar() {
           </SidebarItem>
         </ul>
         <button
-          onClick={handleExitClick}
           className="flex items-center gap-2 p-6 mt-auto mx-auto"
+          onClick={handleExitClick}
         >
           <Image
             width={18}

@@ -1,17 +1,15 @@
-'use client';
-
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import clsx from 'clsx';
 import StatusLabel from '@/app/components/status-label';
 import { Company } from '@/lib/api';
-import Link from 'next/link';
 
 export interface CompanyRowProps {
   company: Company;
 }
 
-const CompanyRow = ({ company }: CompanyRowProps) => {
+export default function CompanyRow({ company }: CompanyRowProps) {
   return (
     <tr className="h-14 text-center text-gray-900 bg-white">
       <td className="text-xs font-medium text-blue-700 rounded-l border-l-4 border-blue-700">
@@ -47,6 +45,4 @@ const CompanyRow = ({ company }: CompanyRowProps) => {
       </td>
     </tr>
   );
-};
-
-export default CompanyRow;
+}

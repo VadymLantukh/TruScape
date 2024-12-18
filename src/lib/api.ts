@@ -4,6 +4,7 @@ export interface SummaryStats {
   newCompanies: number;
   activeCompanies: number;
 }
+
 export interface SummarySales {
   id: string;
   companyId: string;
@@ -16,10 +17,12 @@ export interface Country {
   id: string;
   title: string;
 }
+
 export interface Category {
   id: string;
   title: string;
 }
+
 export enum CompanyStatus {
   Active = 'active',
   NotActive = 'notActive',
@@ -40,7 +43,8 @@ export interface Company {
   countryTitle: string;
   avatar?: string;
 }
-export interface IPromotion {
+
+export interface Promotion {
   id: string;
   title: string;
   description: string;
@@ -95,8 +99,37 @@ export const getPromotions = async (
   params: Record<string, string> = {},
   init?: RequestInit,
 ) => {
-  return sendRequest<IPromotion[]>(
+  return sendRequest<Promotion[]>(
     `${buildUrl('promotions')}?${stringifyQueryParams(params)}`,
     init,
   );
+};
+
+export const createCompany = async (
+  data: Omit<Company, 'id' | 'hasPromotions'>,
+  init?: RequestInit,
+) => {
+  return sendRequest<Company>(buildUrl('companies'), {
+    ...init,
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      ...(init && init.headers),
+      'content-type': 'application/json',
+    },
+  });
+};
+
+export const createPromotion = async (
+  data: Omit<Promotion, 'id'>,
+  init?: RequestInit,
+) => {
+  return sendRequest<Promotion>(buildUrl('promotions'), {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      ...(init && init.headers),
+      'content-type': 'application/json',
+    },
+  });
 };

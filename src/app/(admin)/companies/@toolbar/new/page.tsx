@@ -1,5 +1,7 @@
-const Page = () => {
-  return null;
-};
+import React from 'react';
 
-export default Page;
+export interface PageProps {}
+
+export default function Page({}: PageProps) {
+  return null;
+}

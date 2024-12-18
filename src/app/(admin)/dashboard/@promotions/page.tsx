@@ -1,10 +1,13 @@
-import DashboardCard from '@/app/components/dashboard-card';
-import SummaryTable from '@/app/components/summary-table';
-import SummaryTableCell from '@/app/components/summary-table-cell';
-import SummaryTableHeader from '@/app/components/summary-table-header';
+import React from 'react';
 import { getPromotions } from '@/lib/api';
+import SummaryTable from '@/app/components/summary-table';
+import SummaryTableHeader from '@/app/components/summary-table-header';
+import SummaryTableCell from '@/app/components/summary-table-cell';
+import DashboardCard from '@/app/components/dashboard-card';
 
-const Page = async () => {
+export interface PageProps {}
+
+export default async function Page({}: PageProps) {
   const data = await getPromotions();
 
   return (
@@ -28,6 +31,4 @@ const Page = async () => {
       </SummaryTable>
     </DashboardCard>
   );
-};
-
-export default Page;
+}

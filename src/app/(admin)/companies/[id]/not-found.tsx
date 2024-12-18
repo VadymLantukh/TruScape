@@ -1,13 +1,17 @@
+'use client';
+
+import React from 'react';
 import Link from 'next/link';
 
-const NotFound = () => {
+export interface NotFoundProps {}
+
+export default function NotFound({}: NotFoundProps) {
   return (
     <div>
-      <p>Coulnd not found company</p>
-      <Link className="text-blue-500" href="/companies">
+      <p>Could not found company</p>
+      <Link href="/companies" className="text-blue-500">
         Back to companies
       </Link>
     </div>
   );
-};
-export default NotFound;
+}

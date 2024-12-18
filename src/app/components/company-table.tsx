@@ -1,8 +1,11 @@
 'use client';
 
-import { getCompanies } from '@/lib/api';
+import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import CompanyRow from './company-row';
+import { getCompanies } from '@/lib/api';
+import CompanyRow from '@/app/components/company-row';
+
+export interface CompanyTableProps {}
 
 const headers = [
   'Category',
@@ -13,7 +16,7 @@ const headers = [
   'Joined date',
 ];
 
-const CompanyTable = () => {
+export default function CompanyTable({}: CompanyTableProps) {
   const { data } = useQuery({
     queryKey: ['companies'],
     queryFn: () => getCompanies(),
@@ -40,6 +43,4 @@ const CompanyTable = () => {
       </table>
     </div>
   );
-};
-
-export default CompanyTable;
+}

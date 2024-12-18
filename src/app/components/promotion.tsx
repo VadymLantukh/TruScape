@@ -1,11 +1,12 @@
-import { IPromotion } from '@/lib/api';
+import React from 'react';
 import Image from 'next/image';
+import { Promotion } from '@/lib/api';
 
-export interface IPromotionProps {
-  promotion: IPromotion;
+export interface PromotionProps {
+  promotion: Promotion;
 }
 
-const Promotion = ({ promotion }: IPromotionProps) => {
+export default function Promotion({ promotion }: PromotionProps) {
   return (
     <div className="rounded overflow-hidden	bg-gray-100">
       <div className="relative w-full h-40 bg-gray-300">
@@ -25,6 +26,4 @@ const Promotion = ({ promotion }: IPromotionProps) => {
       </div>
     </div>
   );
-};
-
-export default Promotion;
+}

@@ -1,11 +1,12 @@
+import React from 'react';
 import Header from '@/app/components/header';
 
-const Page = () => {
+export interface PageProps {}
+
+export default function Page({}: PageProps) {
   return (
     <>
       <Header>Dashboard</Header>
     </>
   );
-};
-
-export default Page;
+}
